@@ -1,0 +1,10 @@
+1662921465273:;set _root_.scala.collection.Seq(historyPath := None,shellPrompt := { _ => "" },SettingKey[_root_.scala.Option[_root_.sbt.File]]("sbtStructureOutputFile") in _root_.sbt.Global := _root_.scala.Some(_root_.sbt.file("/private/var/folders/hb/fhtyhm0j7xl_20kw4zkrhjt00000gn/T/sbt-structure.xml")),SettingKey[_root_.java.lang.String]("sbtStructureOptions") in _root_.sbt.Global := "download, resolveClassifiers");apply -cp "/Users/venkatkooram/Library/Application Support/JetBrains/IdeaIC2021.2/plugins/Scala/repo/org/jetbrains/scala/sbt-structure-extractor_2.12_1.0/2021.1.1/sbt-structure-extractor-2021.1.1.jar" org.jetbrains.sbt.CreateTasks;*/*:dumpStructure
+1662953537508:runMain ./index.html ./server.html
+1662953592283:runMain Main ./index.html ./server.html
+1662994870088:auto-offset-reset = ${?AUTO_OFFSET_RESET}
+1662994895075:runMain Main ./index.html ./server.html
+1662995016180:runMain Main ./index1.html ./server.html
+1662995442518:runMain Main ./index.html ./server.html
+1662999973525:runMain InefficientProducerConsumer
+1663000265337:;set _root_.scala.collection.Seq(historyPath := None,shellPrompt := { _ => "" },SettingKey[_root_.scala.Option[_root_.sbt.File]]("sbtStructureOutputFile") in _root_.sbt.Global := _root_.scala.Some(_root_.sbt.file("/private/var/folders/hb/fhtyhm0j7xl_20kw4zkrhjt00000gn/T/sbt-structure.xml")),SettingKey[_root_.java.lang.String]("sbtStructureOptions") in _root_.sbt.Global := "download, resolveClassifiers");apply -cp "/Users/venkatkooram/Library/Application Support/JetBrains/IdeaIC2021.2/plugins/Scala/repo/org/jetbrains/scala/sbt-structure-extractor_2.12_1.0/2021.1.1/sbt-structure-extractor-2021.1.1.jar" org.jetbrains.sbt.CreateTasks;*/*:dumpStructure
+1663000281322:runMain InefficientProducerConsumer

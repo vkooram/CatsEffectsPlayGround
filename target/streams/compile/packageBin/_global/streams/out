@@ -1,0 +1,15 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /Users/venkatkooram/workarea/harmony/CatsEffects/target/scala-2.13/catseffects_2.13-0.1.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/venkatkooram/workarea/harmony/CatsEffects/target/scala-2.13/classes/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	InefficientProducerConsumer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/venkatkooram/workarea/harmony/CatsEffects/target/scala-2.13/classes/InefficientProducerConsumer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Result.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/venkatkooram/workarea/harmony/CatsEffects/target/scala-2.13/classes/Result.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Result$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/venkatkooram/workarea/harmony/CatsEffects/target/scala-2.13/classes/Result$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/venkatkooram/workarea/harmony/CatsEffects/target/scala-2.13/classes/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	InefficientProducerConsumer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/venkatkooram/workarea/harmony/CatsEffects/target/scala-2.13/classes/InefficientProducerConsumer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
