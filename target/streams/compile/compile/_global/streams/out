@@ -1,5 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/venkatkooram/workarea/harmony/CatsEffects/src/main/scala/Main.scala:41:20: not enough arguments for method apply: (i: Int): Byte in class Array.[0m
-[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter i.[0m
-[0m[[0m[31merror[0m] [0m[0m      buffer <- IO(new Array[Byte](1024*10)())[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
