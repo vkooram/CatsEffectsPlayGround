@@ -1,3 +1,4 @@
+import cats.effect
 import cats.effect.concurrent.Semaphore
 import cats.effect.{Concurrent, ExitCode, IO, IOApp, Resource}
 import cats.implicits.catsSyntaxFlatMapOps
@@ -5,6 +6,7 @@ import cats.effect._
 
 import java.io.{File, FileInputStream, FileOutputStream}
 import scala.concurrent.ExecutionContext
+import scala.util.Try
 
 case class Result(count: Long, iter: Long)
 
@@ -46,17 +48,17 @@ object Main extends IOApp {
         } else IO(Result(acc, iter))
     } yield(count)
 
-  def transfer(inputStream: FileInputStream, outputStream: FileOutputStream): IO[Result] =
+  def transfer(inputStream: FileInputStream, outputStream: FileOutputStream, buffer: Int): IO[Result] =
     for {
-      buffer <- IO(new Array[Byte](1024*10))
+      buffer <- IO(new Array[Byte](buffer*10))
       result <- transmit(inputStream: FileInputStream, outputStream: FileOutputStream, buffer, 0L, 0L)
     } yield(result)
 
-  def copy(origin: File, destination: File)(implicit concurrent: Concurrent[IO]): IO[Result] = {
+  def copy(origin: File, destination: File, buffer: Int)(implicit concurrent: Concurrent[IO]): IO[Result] = {
     for {
       guard <- Semaphore[IO](1)
       result <- inputOutputStreams(origin, destination, guard).use {
-        case(in, out) => guard.withPermit(transfer(in, out))
+        case(in, out) => guard.withPermit(transfer(in, out, buffer))
       }
     } yield(result)
   }
@@ -64,12 +66,27 @@ object Main extends IOApp {
 
   override def run(args: List[String]): IO[ExitCode] =
     for {
-      _ <-
-        if (args.length < 2)
-          IO.raiseError(new IllegalArgumentException("Need origin and destination files!"))
-        else
-          IO.unit
-      result <- copy(new File(args(0)), new File(args(1)))
+      _ <- IO (println(s"src ${args(0)} dst ${args(1)} buffer ${args(2)}"))
+      _ <- args match {
+        case a if a.length < 2                            => IO.raiseError(new IllegalArgumentException("Need origin and destination files!"))
+        case b if b(0) == b(1)                            => IO.raiseError(new Exception("Source Destination paths cannot be the same!"))
+        case c if ! c(2).forall(Character.isDigit(_))     => IO.raiseError(new Exception("Buffer size has to be a numerical"))
+        case _                                            => IO.unit
+      }
+      source <- IO(new File(args(0)))
+      destination <-  IO {
+        val dest = new File(args(1))
+        dest.exists() match {
+          case false =>
+            dest
+          case true  =>
+            println(s"overwriting ${args(1)}. press y or n ?")
+            val decision = scala.io.StdIn.readLine
+            if (decision.strip().toLowerCase().contains('n')) System.exit(-1)
+            dest
+        }
+      }
+      result <- copy(source, destination, args(3).toInt)
       _ <- IO(println(s"${result.count} bytes transferred from ${args(0)} to ${args(1)}. Looped ${result.iter} times."))
     } yield (ExitCode.Success)
 }
