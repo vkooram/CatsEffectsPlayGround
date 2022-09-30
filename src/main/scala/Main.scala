@@ -70,7 +70,7 @@ object Main extends IOApp {
       _ <- args match {
         case a if a.length < 2                            => IO.raiseError(new IllegalArgumentException("Need origin and destination files!"))
         case b if b(0) == b(1)                            => IO.raiseError(new Exception("Source Destination paths cannot be the same!"))
-        case c if ! c(2).forall(Character.isDigit(_))     => IO.raiseError(new Exception("Buffer size has to be a numerical"))
+        case c if ! c(2).forall(Character.isDigit(_))     => IO.raiseError(new Exception("Buffer size has to be a numerical!"))
         case _                                            => IO.unit
       }
       source <- IO(new File(args(0)))
